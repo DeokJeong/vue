@@ -17,8 +17,18 @@
   </header>
   <section id="user-goal">
     <h2>My Course Goal</h2>
-    <p>{{ courseGoal }}</p>
+    <!-- <p>{{ outputGoal() }}</p> -->
+    <!-- 
+    v-html은 안쓰는게 좋음
+    기본설정으로 사용하면 스크립팅 공격에대한 방어기능을 
+    피하게되어 보안 위협이 발생함
+    -->
+    <p v-html="outputGoal()"></p>
+    <!-- v-bind : vue 에게 바인딩 설정 - 어떤것에 대한 값을 설정하도록 지시 -->
+    <p>Learn more <a v-bind:href="vueLink">about Vue</a>.</p>
   </section>
 </body>
 
 </html>
+
+<!-- 보간법 -->
