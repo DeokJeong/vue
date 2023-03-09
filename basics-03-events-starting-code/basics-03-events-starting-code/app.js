@@ -5,13 +5,13 @@ const app = Vue.createApp({
     };
   },
   methods: {
-    add() {
-      this.counter = this.counter + 1;
+    add(num) {
+      this.counter = this.counter + num;
       // 더 짧은 방법 사용 가능
       // this.counter++; 
     },
-    reduce() {
-      this.counter = this.counter - 1;
+    reduce(num) {
+      this.counter = this.counter - num;
       // 더 짧은 방법 사용 가능
       // this.counter--;
     }

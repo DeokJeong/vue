@@ -13,25 +13,15 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <!-- 이벤트 바인딩 이해하기 -->
-    <!-- 이벤트 및 메서드 -->
+    <!-- 이벤트 인수 활용 -->
     <header>
       <h1>Vue Events</h1>
     </header>
     <section id="events">
       <h2>Events in Action</h2>
 
-      <!-- add 버튼을 눌렀을때 카운터의 값에서 1 추가 -->
-      <!-- v-on 은 : 뒤에 수신할 이벤트를 기재 ( click, mouseover 등등 ) -->
-      <!-- 아래 두가지 방법으로 둘다 사용가능함 add() or add  -->
-      <!-- <button v-on:click="add()">Add</button> -->
-      <button v-on:click="add">Add</button>
-
-      <!-- Reduce 버튼 눌렀을때 카운터의 값에서 1 감소 -->
-      <!-- <button v-on:click="counter--">Reduce</button> -->
-      <!-- <button v-on:click="counter = counter - 2">Reduce</button> -->
-      <!-- <button v-on:click="reduce()">Reduce</button> -->
-      <button v-on:click="reduce">Reduce</button>
+      <button v-on:click="add(3)">Add</button>
+      <button v-on:click="reduce(3)">Reduce</button>
 
       <p>Result: {{ counter }}</p>
     </section>
