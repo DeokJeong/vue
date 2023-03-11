@@ -24,6 +24,7 @@
       <!-- v-model은 v-bind:value v-on:input의 축약형 -->
       <!-- 양방향 통신 ( 양방향 바인딩 )-->
       <input type="text" v-model="name">
+      <input type="text" v-model="lastName">
       <button v-on:click="resetInput">Reset Input</button>
       <!-- Vue는 HTML 코드 내에 있는 모든 메서드를 재실행 -->
       <!-- 카운터 버튼을 눌러도 모든애들이 작동함 -->
@@ -31,6 +32,7 @@
       <!-- 연산프로퍼티 computed -->
       <!-- 괄호 없이 입력 -->
       <p>Your Name: {{ fullname }}</p>
+      <!-- Vue에 내장된 반응성 기능 - 감시자(watcher) -->
     </section>
   </body>
 </html>
