@@ -20,10 +20,44 @@
     <section id="events">
       <h2>Events in Action</h2>
 
+      <!-- click 이벤트에 수식어로 .right 혹은 .middle 입력시 우클릭과 가운데 클릭을 이용한 이벤트 조절 가능 -->
       <button v-on:click="add(3)">Add</button>
       <button v-on:click="reduce(3)">Reduce</button>
-
+      <!-- 만일 StartingCounter 와 Result 가 동일한 식일때 StartingCount를 변경하고싶지않다면 -->
+      <!-- 초기상태를 유지하면서 상태를 바꾸지 않는다면 사용할수 있는 디렉티브가 있음 -->
+      <!-- v-once 를 넣는다면 초기값을 사용하지않을 수 있음 ( 단 v-once를 사용하는경우가 드뭄 ) -->
+      <p v-once>Startin Counter : {{ counter }} </p>
       <p>Result: {{ counter }}</p>
+
+      <!-- Input의 value값을 입력했을때 p태그에 입력됨 -->
+      <input type="text" v-on:input="setInputName">
+      <p>Your Name: {{ inputName }}</p>
+
+      <!-- value값 외에도 뒤에 글자가 붙거나 다른 이벤트를 주고싶을때 -->
+      <!-- $event를 추가하면 event.target.value로 값을 찾고 뒤에 ''에 있는 값은 뒤에 붙음 -->
+      <input type="text" v-on:input="setName($event, '원')">
+      <p>가진 금액을 입력해보세요. : {{ name }}</p>
+
+      <!-- key이벤트에도 수식어가 있음 -->
+      <!-- keyup에 .enter / Ctrl, shift , page-down 등 모든 키보드 수신가능 -->
+      <input type="text" v-on:input="keyInputName" v-on:keyup.enter="ketInputName">
+      <p>Your Name: {{ confirmedName }}</p>
+
+      <!-- 브라우저가 요청을 자동으로 전송하는 기본값을 방지 -->
+      <!-- 2가지 방법이 있음 -->
+
+      <!-- 1. form에서 수신 할 수 있음 -->
+      <!-- <form v-on:submit="submitForm">
+        <input type="text">
+        <button>Sign Up</button>
+      </form> -->
+
+      <!-- 2. Vue : 이벤트 수식어 사용 -->
+      <!-- 마지막에 마침표를 추가해서 수식어를 만듬 -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text">
+        <button>Sign Up</button>
+      </form>
     </section>
   </body>
 </html>
