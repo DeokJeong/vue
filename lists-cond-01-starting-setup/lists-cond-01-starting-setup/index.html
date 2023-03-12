@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goals">
+      <h2>My course goals</h2>
+      <input type="text" v-model="enteredGoalValue"/>
+      <button @click="addGoal">Add Goal</button>
+      <!-- v-if에는 문제없지만 v-if대안으로 v-show를 사용할 수 있음 -->
+      <!-- v-show는 독립적이기때문에 else나 else-if처럼 쓰지못하고 v-show를 여러 번 써야함 -->
+      <p v-show="goals.length === 0">No goals have been added yet - please start adding some!</p>
+
+      <!-- 조건을 결합할 수 있음 ( &&(and) 혹은 ||(or) 등 ) -->
+      <!-- 연산프로퍼티를 가리키거나 데이터 프로퍼티를 가리킬 수 있음 -->
+      <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
+
+      <!-- 아래 세가지를 쓸 수 있음 -->
+      <!-- <ul v-if="goals.length > 0"> -->
+
+      <!-- v-else를 사용할때는 v-if가 오는 바로 다음요소에 써야함 중간에 다른요소가 있다면 사용할 수 없음 -->
+      <!-- <ul v-else> -->
+
+      <!-- else에 요건이 맞지 않을땐 v-else-if 를 사용할 수 있음 -->
+      <ul v-else-if="goals.length > 0">
+        <li>Goal</li>
+      </ul>
+
+      <!-- v-show 와 v-if 의 차이점은 -->
+      <!-- v-if는 DOM에서 요소를 추가하거나 제거함 -->
+      <!-- v-show는 css로 요소를 숨기거나 표시함 : 성능에 영향을 주지않음 -->
+      <!-- v-if대신에 v-show를 쓰는 경우는 요소의 토글 버튼이 있어서 가시성 상태가 항상 전환되는 경우 -->
+    </section>
+  </body>
+</html>
