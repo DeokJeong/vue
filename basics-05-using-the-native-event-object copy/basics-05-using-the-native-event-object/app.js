@@ -10,17 +10,7 @@ const app = Vue.createApp({
   // 연산프로퍼티 대신 사용할 수 있음
   // 데이터나 연산프로퍼티 이름을 감시자 메서드에서 메서드 이름으로 사용하면
   // 프로퍼티에 있는 이름이 변경될 때마다 감시자 메서드 실행
-  // 출력값을 동적으로 계산할 때는 연산 프로퍼티
-  // 뭔가가 변경되어 코드를 실행할 땐 감시자
-  watch: {
-    counter(value) {
-      if (value > 50){
-        const that = this;
-        setTimeout(function() {
-          that.counter = 0;
-        }, 2000);
-      }
-    }
+  // watch: {
   //   // name() {
   //   //   this.fullname = this.name + ' ' + '메모';
   //   // }
@@ -35,7 +25,7 @@ const app = Vue.createApp({
   //       return this.fullname = '';
   //     }
   //     this.fullname = this.name + ' ' + value;
-    },
+  //   },
   // },
   // computed는 메서드처럼 객체를 취함
   // 객체를 값으로 전달해서 연산
