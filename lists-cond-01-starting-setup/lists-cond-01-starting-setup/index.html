@@ -22,7 +22,7 @@
       <button @click="addGoal">Add Goal</button>
       <!-- v-if에는 문제없지만 v-if대안으로 v-show를 사용할 수 있음 -->
       <!-- v-show는 독립적이기때문에 else나 else-if처럼 쓰지못하고 v-show를 여러 번 써야함 -->
-      <p v-show="goals.length === 0">No goals have been added yet - please start adding some!</p>
+      <!-- <p v-show="goals.length === 0">No goals have been added yet - please start adding some!</p> -->
 
       <!-- 조건을 결합할 수 있음 ( &&(and) 혹은 ||(or) 등 ) -->
       <!-- 연산프로퍼티를 가리키거나 데이터 프로퍼티를 가리킬 수 있음 -->
@@ -36,8 +36,28 @@
 
       <!-- else에 요건이 맞지 않을땐 v-else-if 를 사용할 수 있음 -->
       <ul v-else-if="goals.length > 0">
-        <li>Goal</li>
+        <!-- v-for="아이템명 in array" 아이템명은 변수같은 것 --> 
+        <!-- <li v-for="아이템명 in array">{{ 아이템명 }}</li> -->
+        <!-- <li v-for="goal in goals">{{ goal }}</li> -->
+        <!-- key="" 선택사항이지만 v-for을 사용할때마다 넣어주면 좋음 -->
+        <!-- :key 에 들어가는 내용은 고유 아이디값 - 나중에 백엔드와의 통신을 배우게되면 알게됨 -->
+        <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">{{ goal }}
+          <!-- 만일 li를 생성하고nput을 클릭했을때 li가 삭제되지 않길 원한다면 @click.stop -->
+          <input type="text" @click.stop>
+        </li>
       </ul>
+
+      <!-- 숫자의 범위로 루프를 걸고자 할때도 사용 가능 -->
+      <!-- num 과 in을 통하면 할 수있음 -->
+      <!-- <ul>
+        <li v-for="num in 10">{{ num }}</li>
+      </ul> -->
+
+      <!-- 배열에 루프를 걸 수 있음 -->
+      <!-- key와 index도 볼 수 있음 -->
+      <!-- <ul>
+        <li v-for="(value, key, index) in {name: 'Max', age: 31}">{{ key }} : {{ value }} - {{ index }}</li>
+      </ul> -->
 
       <!-- v-show 와 v-if 의 차이점은 -->
       <!-- v-if는 DOM에서 요소를 추가하거나 제거함 -->
