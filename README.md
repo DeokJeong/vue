@@ -55,3 +55,12 @@ v-bind:input 의 축약어는 :input
 	- v-for와 v-if를 함께 사용해야 하는 경우 동일한 요소에 두 디렉티브를 쓰지않고 v-if에 래퍼를 사용하는게 좋음 ( 동일한 요소에만 쓰지 말것 )
 	- v-for 목록에 상태가 있으면 키가 필요함 / 목록 항목요소에 콘텐츠와 함께 이동되어야 하는 상태가 있으면 재사용시 오류가 생김 / :key="고유 아이디"
 
+---
+### Vue CLI 설치 
+
+node.js 설치 후 명령 프롬프트(cmd)에  `npm install -g @vue/cli` 를 넣어 설치 진행
+
+에러가 생겼을경우 node.js를 재설치 ( 인강 기준에선 https://nodejs.org/en/download/ 에서 다운받으라고 함 )
+
+Visual Studio Code 내 **필수** 확장 프로그램    **"Vuter"**
+
